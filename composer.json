@@ -36,8 +36,8 @@
         "ext-gd": "*"
     },
     "autoload": {
-        "psr-4": {
-            "PHPExcel\\": "devsconexa/phpexcel/Classes/"
+        "psr-0": {
+            "PHPExcel": "Classes/"
         }
     }
 }
