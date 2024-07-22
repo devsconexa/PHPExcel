@@ -192,6 +192,20 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
     public $fontHashIndex;
 
     /**
+     * Flag indicating whether formulas should be calculated or just written
+     *
+     * @var bool
+     */
+    public $preCalculateFormulas;
+
+    /**
+     * Print headers
+     *
+     * @var bool|int
+     */
+    public $_print_headers;
+
+    /**
      * Constructor
      *
      * @param int        &$str_total        Total number of strings
@@ -212,7 +226,7 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
 //        $this->_limit = 8224;
 
 
-        $this->_preCalculateFormulas = $preCalculateFormulas;
+        $this->preCalculateFormulas = $preCalculateFormulas;
         $this->stringTotal        = &$str_total;
         $this->stringUnique        = &$str_unique;
         $this->stringTable        = &$str_table;
@@ -432,7 +446,7 @@ class PHPExcel_Writer_Excel5_Worksheet extends PHPExcel_Writer_Excel5_BIFFwriter
                         break;
 
                     case PHPExcel_Cell_DataType::TYPE_FORMULA:
-                        $calculatedValue = $this->_preCalculateFormulas ?
+                        $calculatedValue = $this->preCalculateFormulas ?
                             $cell->getCalculatedValue() : null;
                         $this->writeFormula($row, $column, $cVal, $xfIndex, $calculatedValue);
                         break;
