@@ -91,6 +91,18 @@ class PHPExcel_Writer_Excel5 extends PHPExcel_Writer_Abstract implements PHPExce
     private $documentSummaryInformation;
 
     /**
+     * Instance of the writer workbook for Excel5
+     * @var PHPExcel_Writer_Excel5_Workbook
+     */
+    private $writerWorkbook;
+
+    /**
+     * Instance of the writer worksheet for Excel5
+     * @var PHPExcel_Writer_Excel5_Worksheet
+     */
+    private $writerWorksheets;
+
+    /**
      * Create a new PHPExcel_Writer_Excel5
      *
      * @param    PHPExcel    $phpExcel    PHPExcel object
