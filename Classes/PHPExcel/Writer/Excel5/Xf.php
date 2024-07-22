@@ -124,6 +124,17 @@ class PHPExcel_Writer_Excel5_Xf
     private $rightBorderColor;
 
     /**
+     * Instance of the PHPExcel_Style class
+     * @var PHPExcel_Style
+     */
+    private $_style;
+
+    /**
+     * @var integer
+     */
+    private $_diag_color;
+
+    /**
      * Constructor
      *
      * @access public
